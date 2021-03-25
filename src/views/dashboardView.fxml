@@ -34,22 +34,22 @@
                <children>
                   <VBox spacing="10.0">
                      <children>
-                        <Label text="Students" />
-                        <ListView prefHeight="200.0" />
+                        <Label fx:id="studentsLabel" text="Students" />
+                        <ListView fx:id="studentListView" prefHeight="200.0" />
                         <Button mnemonicParsing="false" text="Create Student" />
                      </children>
                   </VBox>
                   <VBox spacing="10.0" GridPane.rowIndex="1">
                      <children>
-                        <Label text="Professors" />
-                        <ListView prefHeight="200.0" />
+                        <Label fx:id="professorsLabel" text="Professors" />
+                        <ListView fx:id="professorsListView" prefHeight="200.0" />
                         <Button mnemonicParsing="false" text="Create Professor" />
                      </children>
                   </VBox>
                   <VBox spacing="10.0" GridPane.columnIndex="1">
                      <children>
-                        <Label text="Courses" />
-                        <ListView prefHeight="200.0" />
+                        <Label fx:id="coursesLabel" text="Courses" />
+                        <ListView fx:id="coursesListView" prefHeight="200.0" />
                         <Button mnemonicParsing="false" text="Create Course" />
                      </children>
                   </VBox>

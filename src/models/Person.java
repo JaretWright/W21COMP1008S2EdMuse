@@ -46,10 +46,10 @@ public class Person {
 
     public void setAddress(String address) {
         address = address.trim();
-        if (address.length()>=5 && address.length()<=30)
+        if (address.length()>=5 && address.length()<=100)
             this.address = address;
         else
-            throw new IllegalArgumentException("Address must be 5 to 30 characters");
+            throw new IllegalArgumentException("Address must be 5 to 100 characters");
     }
 
     public void setBirthday(LocalDate birthday) {
@@ -72,5 +72,10 @@ public class Person {
 
     public LocalDate getBirthday() {
         return birthday;
+    }
+
+    public String toString()
+    {
+        return String.format("%s %s age: %d years", firstName, lastName, getAge());
     }
 }
