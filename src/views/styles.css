@@ -8,3 +8,8 @@
     -fx-text-fill: #71baf8;
     -fx-font-size: 24px;
 }
+
+.button{
+    -fx-font-size: 14px;
+    -fx-background-radius: 15px;
+}
