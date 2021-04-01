@@ -35,12 +35,13 @@ public class DashboardViewController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             studentListView.getItems().addAll(DBUtility.getStudentsFromDB());
+            professorsListView.getItems().addAll(DBUtility.getProfessorsFromDB());
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
         studentsLabel.setText(String.format("Students: %d",studentListView.getItems().size()));
 
-        professorsListView.getItems().addAll(DBUtility.getProfessorsFromDB());
+
         professorsLabel.setText(String.format("Professors: %d",professorsListView.getItems().size()));
     }
 }

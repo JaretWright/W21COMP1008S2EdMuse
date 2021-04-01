@@ -58,13 +58,44 @@ public class DBUtility {
         return students;
     }
 
-    public static ArrayList<Professor> getProfessorsFromDB()
-    {
+    public static ArrayList<Professor> getProfessorsFromDB() throws SQLException {
         ArrayList<Professor> professors = new ArrayList<>();
-        professors.add(new Professor("Lois","Parker","674 Goyeau Ave Windsor ON N9A 1H9",LocalDate.of(1987,3,21),10001));
-        professors.add(new Professor("Ginger","Harris","3514 Yonge Street Toronto ON M4W 1J7",LocalDate.of(1967,11,12),10002));
-        professors.add(new Professor("Winchester","Solomon","3099 Balmy Beach Road Owen Sound ON N4K 2N7",LocalDate.of(1977,12,18),10003));
-        professors.add(new Professor("John","Pressley","1101 Eglinton Avenue Toronto ON M4P 1A6",LocalDate.of(1973,11,29),10004));
+
+        //connect to the DB
+        Connection conn = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+
+        try{
+            //connect to the Database
+            conn = DriverManager.getConnection(connString, user, password);
+
+            statement = conn.createStatement();
+
+            //run the query on the DB
+            resultSet = statement.executeQuery("SELECT * FROM professors");
+
+            //loop over the resultset and create Professor objects
+            while (resultSet.next()){
+                Professor newProfessor = new Professor(resultSet.getString("firstName"),
+                        resultSet.getString("lastName"),
+                        resultSet.getString("address"),
+                        resultSet.getDate("birthday").toLocalDate(),
+                        resultSet.getInt("professorID"));
+                professors.add(newProfessor);
+            }
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        finally {
+            if (conn != null)
+                conn.close();
+            if (statement != null)
+                statement.close();
+            if (resultSet != null)
+                resultSet.close();
+        }
         return professors;
     }
 
