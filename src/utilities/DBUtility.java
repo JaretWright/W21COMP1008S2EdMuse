@@ -17,8 +17,7 @@ public class DBUtility {
         return crn.matches("21[0-9]{3}");  //21000 -> 21999
     }
 
-    public static ArrayList<Student> getStudentsFromDB()
-    {
+    public static ArrayList<Student> getStudentsFromDB() throws SQLException {
         ArrayList<Student> students = new ArrayList<>();
 
         //connect to the DB
@@ -35,20 +34,27 @@ public class DBUtility {
             //run the query on the DB
             resultSet = statement.executeQuery("SELECT * FROM students");
 
+            //loop over the resultset and create Student objects
+            while (resultSet.next()){
+                Student newStudent = new Student(resultSet.getString("firstName"),
+                                                resultSet.getString("lastName"),
+                                                resultSet.getString("address"),
+                                                resultSet.getDate("birthday").toLocalDate(),
+                                                resultSet.getInt("studentNum"));
+                students.add(newStudent);
+            }
         } catch (SQLException e)
         {
             e.printStackTrace();
         }
-
-        //query the DB for students
-        //loop over the result and create Student objects...add them to our students ArrayList
-        students.add(new Student("Rose","Ruffner","3846 St. Paul StreetSt Catharines ON L2S 3A1", LocalDate.of(1975,8,27),100000001));
-        students.add(new Student("Jack","Bradbury","867 rue des Églises Est Ste Cecile De Masham QC J0X 2W0", LocalDate.of(1979,10,14),100000002));
-        students.add(new Student("Elanore","Sanders","1145 47th Avenue Grassland AB T0A 1V0", LocalDate.of(1940,9,25),100000003));
-        students.add(new Student("Nancy","Walsh","1459 Harvest Moon Dr Unionville ON L3R 0L7", LocalDate.of(1999,1,12),100000004));
-        students.add(new Student("Greta","Tolbert","642 Front Street Toronto ON M5J 2N1", LocalDate.of(1957,12,18),100000005));
-        students.add(new Student("Barbara","Gable","3671 Scotchmere Dr Sarnia ON N7T 7T9", LocalDate.of(2002,11,13),100000006));
-
+        finally {
+            if (conn != null)
+                conn.close();
+            if (statement != null)
+                statement.close();
+            if (resultSet != null)
+                resultSet.close();
+        }
         return students;
     }
 

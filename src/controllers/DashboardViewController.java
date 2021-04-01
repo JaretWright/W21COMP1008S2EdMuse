@@ -9,6 +9,7 @@ import models.Student;
 import utilities.DBUtility;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class DashboardViewController implements Initializable {
@@ -32,7 +33,11 @@ public class DashboardViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        studentListView.getItems().addAll(DBUtility.getStudentsFromDB());
+        try {
+            studentListView.getItems().addAll(DBUtility.getStudentsFromDB());
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
         studentsLabel.setText(String.format("Students: %d",studentListView.getItems().size()));
 
         professorsListView.getItems().addAll(DBUtility.getProfessorsFromDB());
