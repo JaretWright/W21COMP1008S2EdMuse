@@ -43,11 +43,12 @@
                   <TextField fx:id="firstNameTextField" promptText="Enter First Name" GridPane.columnIndex="1" />
                   <TextField fx:id="lastNameTextField" promptText="Enter Last Name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <TextField fx:id="addressTextField" promptText="Enter Address " GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField fx:id="studentNumberTextField" promptText="Enter Student Number" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                   <DatePicker fx:id="birthdayDatePicker" prefHeight="37.0" prefWidth="571.0" promptText="Select Birthday" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="studentNumberTextField" promptText="Enter Student Number" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                </children>
             </GridPane>
             <Button mnemonicParsing="false" onAction="#createStudent" text="Submit" />
+            <Label fx:id="msgLabel" alignment="TOP_LEFT" prefHeight="107.0" prefWidth="760.0" text="Label" wrapText="true" />
          </children>
          <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

@@ -29,15 +29,21 @@ public class Person {
      * @param firstName
      */
     public void setFirstName(String firstName) {
-        firstName = firstName.substring(0,1).toUpperCase() + firstName.substring(1);
-        if (firstName.matches("[A-Z][a-z]*"))
-            this.firstName = firstName;
+        firstName = firstName.trim();
+        if (firstName.length()>=2){
+            firstName = firstName.substring(0,1).toUpperCase() + firstName.substring(1);
+            if (firstName.matches("[A-Z][a-z]*"))
+                this.firstName = firstName;
+            else
+                throw new IllegalArgumentException("Names must start with an upper case letter and only contain alphabetic characters");
+        }
         else
-            throw new IllegalArgumentException("Names must start with an upper case letter and only contain alphabetic characters");
+            throw new IllegalArgumentException("First name must have at least 2 characters");
+
     }
 
     public void setLastName(String lastName) {
-        lastName = lastName.substring(0,1).toUpperCase() + lastName.substring(1);
+//        lastName = lastName.substring(0,1).toUpperCase() + lastName.substring(1);
         if (lastName.matches("[A-Z][a-z]*"))
             this.lastName = lastName;
         else
