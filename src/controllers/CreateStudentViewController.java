@@ -1,12 +1,15 @@
 package controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import models.Student;
 import utilities.DBUtility;
+import utilities.SceneChanger;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 
@@ -70,5 +73,10 @@ public class CreateStudentViewController {
         //there was at least 1 empty field
         msgLabel.setText(errMsg.substring(0, errMsg.length()-2));
         return false;
+    }
+
+    @FXML
+    private void returnToDashboard(ActionEvent event) throws IOException {
+        SceneChanger.changeScenes(event, "../views/dashboardView.fxml","EdMuse");
     }
 }
