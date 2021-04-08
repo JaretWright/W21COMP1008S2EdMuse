@@ -56,14 +56,11 @@ public class DashboardViewController implements Initializable {
     @FXML
     private void createNewStudentButton(ActionEvent event) throws IOException {
         SceneChanger.changeScenes(event,"../views/createStudentView.fxml","EdMuse - Create New Student");
-//        Parent root = FXMLLoader.load(getClass().getResource("../views/createStudentView.fxml"));
-//        Scene scene = new Scene(root);
-//
-//        //get the stage from the event that was passed in
-//        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-//
-//        stage.setScene(scene);
-//        stage.setTitle("EdMuse - Create New Student");
-//        stage.show();
     }
+
+    @FXML
+    private void createNewProfessorButton(ActionEvent event) throws IOException {
+        SceneChanger.changeScenes(event,"../views/createProfessorView.fxml","EdMuse - Create New Professor");
+    }
+
 }

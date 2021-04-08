@@ -149,4 +149,8 @@ public class DBUtility {
         }
     }
 
+    /**
+     * This method will return an ArrayList of String objects.  The Strings represent the course code and name
+     */
+
 }
