@@ -152,5 +152,27 @@ public class DBUtility {
     /**
      * This method will return an ArrayList of String objects.  The Strings represent the course code and name
      */
+    public static ArrayList<String> getCourseCodesAndNames()
+    {
+        ArrayList<String> courses = new ArrayList<>();
+        //try with resources...doing this will auto-close the objects that can be closed
+        try(
+                Connection conn = DriverManager.getConnection(connString, user, password);
+                Statement statement = conn.createStatement();
+                ResultSet resultSet = statement.executeQuery("SELECT * FROM approvedCourses");
+                )
+        {
+            while (resultSet.next())
+            {
+                courses.add(resultSet.getString("courseCode")+"-"+resultSet.getString("courseName"));
+            }
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return courses;
+    }
+
 
 }
