@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import models.Professor;
 import models.Student;
 import utilities.DBUtility;
+import utilities.SceneChanger;
 
 import java.io.IOException;
 import java.net.URL;
@@ -54,14 +55,15 @@ public class DashboardViewController implements Initializable {
 
     @FXML
     private void createNewStudentButton(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../views/createStudentView.fxml"));
-        Scene scene = new Scene(root);
-
-        //get the stage from the event that was passed in
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-
-        stage.setScene(scene);
-        stage.setTitle("EdMuse - Create New Student");
-        stage.show();
+        SceneChanger.changeScenes(event,"../views/createStudentView.fxml","EdMuse - Create New Student");
+//        Parent root = FXMLLoader.load(getClass().getResource("../views/createStudentView.fxml"));
+//        Scene scene = new Scene(root);
+//
+//        //get the stage from the event that was passed in
+//        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+//
+//        stage.setScene(scene);
+//        stage.setTitle("EdMuse - Create New Student");
+//        stage.show();
     }
 }

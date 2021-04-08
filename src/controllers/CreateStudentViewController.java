@@ -38,8 +38,7 @@ public class CreateStudentViewController {
                 Student newStudent = new Student(firstNameTextField.getText(),
                         lastNameTextField.getText(),
                         addressTextField.getText(),
-                        birthdayDatePicker.getValue(),
-                        Integer.parseInt(studentNumberTextField.getText()));
+                        birthdayDatePicker.getValue());
                 int studentNum = DBUtility.insertStudentIntoDB(newStudent);
                 newStudent.setStudentNum(studentNum);
                 msgLabel.setText(newStudent.toString());
