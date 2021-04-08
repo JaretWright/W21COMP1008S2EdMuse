@@ -19,7 +19,7 @@ public class Student extends Person{
         return studentNum;
     }
 
-    private void setStudentNum(int studentNum) {
+    public void setStudentNum(int studentNum) {
         if (studentNum>=100000000)
             this.studentNum = studentNum;
         else

@@ -5,7 +5,9 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import models.Student;
+import utilities.DBUtility;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class CreateStudentViewController {
@@ -38,8 +40,10 @@ public class CreateStudentViewController {
                         addressTextField.getText(),
                         birthdayDatePicker.getValue(),
                         Integer.parseInt(studentNumberTextField.getText()));
+                int studentNum = DBUtility.insertStudentIntoDB(newStudent);
+                newStudent.setStudentNum(studentNum);
                 msgLabel.setText(newStudent.toString());
-            }catch(IllegalArgumentException e)
+            }catch(IllegalArgumentException | SQLException e)
             {
                 msgLabel.setText(e.getMessage());
             }
