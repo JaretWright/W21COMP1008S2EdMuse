@@ -164,7 +164,7 @@ public class DBUtility {
         {
             while (resultSet.next())
             {
-                courses.add(resultSet.getString("courseCode")+"-"+resultSet.getString("courseName"));
+                courses.add(resultSet.getString("courseCode"));
             }
         }
         catch(Exception e)

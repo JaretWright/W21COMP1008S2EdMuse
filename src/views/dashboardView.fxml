@@ -42,7 +42,7 @@
                      <children>
                         <Label fx:id="professorsLabel" text="Professors" />
                         <ListView fx:id="professorsListView" prefHeight="200.0" />
-                        <Button mnemonicParsing="false" text="Create Professor" />
+                        <Button mnemonicParsing="false" onAction="#createNewProfessorButton" text="Create Professor" />
                      </children>
                   </VBox>
                   <VBox spacing="10.0" GridPane.columnIndex="1">

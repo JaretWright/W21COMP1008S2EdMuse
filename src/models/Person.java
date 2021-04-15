@@ -82,6 +82,6 @@ public class Person {
 
     public String toString()
     {
-        return String.format("%s %s age: %d years", firstName, lastName, getAge());
+        return String.format("%s-%s %s age: %d years", this.getClass(), firstName, lastName, getAge());
     }
 }
