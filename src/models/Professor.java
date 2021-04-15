@@ -14,6 +14,12 @@ public class Professor extends Person{
         teachables = new ArrayList<>();
     }
 
+    public Professor(String firstName, String lastName, String address, LocalDate birthday, ArrayList<String> teachables, int employeeNum) {
+        super(firstName, lastName, address, birthday);
+        this.teachables = teachables;
+        this.employeeNum = employeeNum;
+    }
+
     public ArrayList<String> getTeachables() {
         return teachables;
     }

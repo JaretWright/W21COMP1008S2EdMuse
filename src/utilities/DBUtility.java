@@ -6,6 +6,7 @@ import models.Student;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class DBUtility {
     private static String user = "student";
@@ -174,5 +175,11 @@ public class DBUtility {
         return courses;
     }
 
-
+    public static ArrayList<String> getMajors()
+    {
+        ArrayList<String> majors = new ArrayList<>();
+        majors.addAll(Arrays.asList("Acupuncture","Advanced Care Paramedic","Architectural Technology",
+                "Art and Design Fundamentals","Artificial Intelligence", "Aviation Management","Computer Science"));
+        return majors;
+    }
 }

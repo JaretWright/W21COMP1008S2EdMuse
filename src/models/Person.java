@@ -84,4 +84,16 @@ public class Person {
     {
         return String.format("%s-%s %s age: %d years", this.getClass(), firstName, lastName, getAge());
     }
+
+    /**
+     * This method will return true if the Person contains the search String
+     */
+    public boolean contains(String searchString)
+    {
+        //name = "Alfred"  searchString = "red"
+        if (firstName.contains(searchString) || lastName.contains(searchString) ||
+                address.contains(searchString))
+            return true;
+        return false;
+    }
 }

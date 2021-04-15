@@ -3,10 +3,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import models.Person;
+import models.Professor;
+import models.Student;
+import utilities.DBUtility;
+
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main extends Application {
     public static void main(String[] args) {
-        launch(args);
+          launch(args);
 //        TreeMap<String, Integer> grades = new TreeMap<>();
 //        grades.put("COMP 1008",100);
 //        grades.put("MGMT 2003",87);
